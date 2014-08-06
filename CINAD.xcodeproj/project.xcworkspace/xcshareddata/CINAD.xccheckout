@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A1C958CE-0186-4C5B-AE14-B9472CCE3706</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CINAD</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>50FBE3DD-33F0-46C7-8E08-58D7D53E9444</key>
+		<string>http://tweetero.googlecode.com/svn/trunk</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>IPhoneProject/intertechmedia/CINAD/CINAD.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>50FBE3DD-33F0-46C7-8E08-58D7D53E9444</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>50FBE3DD-33F0-46C7-8E08-58D7D53E9444</key>
+		<string>http://tweetero.googlecode.com/svn</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://tweetero.googlecode.com/svn/trunk/IPhoneProject/intertechmedia/CINAD/CINAD.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>50FBE3DD-33F0-46C7-8E08-58D7D53E9444</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryBranchesRelativeLocationKey</key>
+			<string>branches</string>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlRepositoryTagsRelativeLocationKey</key>
+			<string>tags</string>
+			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
+			<string>trunk</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>50FBE3DD-33F0-46C7-8E08-58D7D53E9444</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Documents</string>
+		</dict>
+	</array>
+</dict>
+</plist>
