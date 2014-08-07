@@ -5,47 +5,46 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>B48EF2C6-5ADC-40AB-8574-D582923083D4</string>
+	<string>CD932B7D-5991-4D82-83F1-2583C62C7977</string>
 	<key>IDESourceControlProjectName</key>
 	<string>CINAD</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>C4C7E7B2-88CE-4111-B22A-3A0390F3510C</key>
-		<string>http://tweetero.googlecode.com/svn/trunk</string>
+		<key>9359BD8E-B9A2-43FC-A06F-724D2D07F3CE</key>
+		<string>https://github.com/InterTechMedia/IOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>IPhoneProject/intertechmedia/CINAD/CINAD.xcworkspace</string>
+	<string>CINAD.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>C4C7E7B2-88CE-4111-B22A-3A0390F3510C</key>
-		<string>../../../..</string>
-	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>C4C7E7B2-88CE-4111-B22A-3A0390F3510C</key>
-		<string>http://tweetero.googlecode.com/svn</string>
+		<key>1221F4ED-D3D3-43BA-9EEE-3A546D0662B1</key>
+		<string>../CINAD</string>
+		<key>9359BD8E-B9A2-43FC-A06F-724D2D07F3CE</key>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://tweetero.googlecode.com/svn/trunk/IPhoneProject/intertechmedia/CINAD/CINAD.xcworkspace</string>
+	<string>https://github.com/InterTechMedia/IOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>C4C7E7B2-88CE-4111-B22A-3A0390F3510C</string>
+	<string>9359BD8E-B9A2-43FC-A06F-724D2D07F3CE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
-			<key>IDESourceControlRepositoryBranchesRelativeLocationKey</key>
-			<string>branches</string>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
-			<key>IDESourceControlRepositoryTagsRelativeLocationKey</key>
-			<string>tags</string>
-			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
-			<string>trunk</string>
+			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>C4C7E7B2-88CE-4111-B22A-3A0390F3510C</string>
+			<string>1221F4ED-D3D3-43BA-9EEE-3A546D0662B1</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Documents</string>
+			<string>CINAD</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9359BD8E-B9A2-43FC-A06F-724D2D07F3CE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IOS</string>
 		</dict>
 	</array>
 </dict>
