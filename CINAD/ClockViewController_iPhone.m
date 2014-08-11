@@ -91,8 +91,13 @@
 
 
 -(IBAction)setting{
+ 
+   // TTOpenURL(@"tt://remindEdit" );
     
-    TTOpenURL(@"tt://remindEdit" );
+    
+    
+    
+    
     
 }
 

@@ -8,170 +8,13 @@
 
 #import "RemindEdit.h"
 #import "AppDelegate.h"
- #import "Settings.h"
-
-
-/**
-//////////////////////////////////////////////////
-@interface RemindEditTableItem : TTTableSettingsItem
-{
-}
-  
-@end
-
-@implementation RemindEditTableItem
- 
-
-@end
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
-@interface RemindEditTableCell : TTTableSettingsItemCell
-{
-    
-    
-}
- 
-@end
-
-@implementation RemindEditTableCell
- 
-
-
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.selectionStyle = UITableViewCellSelectionStyleBlue;
-    
-}
+#import "Settings.h"
 
 
 
 
 
-@end
-///////////////////////////////////////////////
-
-
-@interface RemindEditDataSource : TTSectionedDataSource
-{
-    NSString*selectDate;
-}
-- (id)initWithSearchQuery:(NSString*)selectDate;
-
-@end
-
-@implementation RemindEditDataSource
- 
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (id)initWithSearchQuery:(NSString *)r  {
-    if (self = [super init]) {
-        selectDate =  [[NSUserDefaults standardUserDefaults  ] objectForKey:@"alarmTime" ] ;
-    }
-    return self;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)tableViewDidLoadModel:(UITableView*)tableView {
-
-    self.items = [NSMutableArray array];
-    self.sections = [NSMutableArray array];
-
-
-    NSMutableArray* section = [[NSMutableArray alloc] init];
-    
-    
-    UISwitch* switchy = [[[UISwitch alloc] init] autorelease];
-    
-    NSString *alarm = [[NSUserDefaults standardUserDefaults ] objectForKey:@"alarm" ] ;
-    if ( [alarm isEqualToString:@"on" ] ) {
-        [switchy setOn:YES ];
-    }else
-        [switchy setOn:NO ];
-    
-    
-    
-    TTTableControlItem* alarmItem = [TTTableControlItem itemWithCaption:@"Alarm" control:switchy];
-    [section addObject:alarmItem] ;
-    [switchy addTarget:self action:@selector(alarm:) forControlEvents:UIControlEventValueChanged ] ;
-    
-    
-    TTTableSettingsItem* settItem = [TTTableSettingsItem itemWithText:selectDate caption:@"Time" ];
-
-    [section addObject:settItem];
-    
-    [_sections addObject:@"" ];
-    [_items addObject:section];
-
-}
-
-- (void)alarm:(id)sender{
-    
-    UISwitch* switchy =(UISwitch*)sender;
-    if ( switchy.isOn ) {
-        [[NSUserDefaults standardUserDefaults ] setObject:@"on" forKey:@"alarm"];
-    }else{
-        [[NSUserDefaults standardUserDefaults ] removeObjectForKey:@"alarm"];
-        [[UIApplication sharedApplication] cancelAllLocalNotifications];
-        
-        [[NSUserDefaults standardUserDefaults  ] setObject:@"" forKey:@"alarmTime" ] ;
-        
-        [[NSNotificationCenter defaultCenter]  postNotificationName:@"refreshTable" object:self userInfo:nil ];
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-
-}
-@end
-
- */
-//////////////////////////////////////////////////////
-
-
-
-@interface TextTestStyleSheet : TTDefaultStyleSheet
-@end
-
-@implementation TextTestStyleSheet
-
-- (TTStyle*)redText {
-    return [TTTextStyle styleWithColor:[UIColor redColor] next:nil];
-}
-
-
-- (TTStyle*)yText {
-    return [TTTextStyle styleWithColor:[UIColor yellowColor] next:nil];
-}
-
-- (TTStyle*)largeText {
-    return [TTTextStyle styleWithFont:[UIFont systemFontOfSize:32] next:nil];
-}
-
-- (TTStyle*)smallText {
-    return [TTTextStyle styleWithFont:[UIFont systemFontOfSize:12] next:nil];
-}
-
-
-
-@end
-
-
-
-
-
-
-
-
-@interface RemindEdit ()
+@interface RemindEdit () <NIAttributedLabelDelegate>
 
 
 @property (nonatomic, retain) UIToolbar *toolBar;
@@ -183,20 +26,7 @@
  
 @synthesize selectDate;
 
- 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	if (self == [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Alarm"
-														 image:[UIImage imageNamed:@"clock.png"]
-														   tag:0] autorelease];
-        
-        [TTStyleSheet setGlobalStyleSheet:[[[TextTestStyleSheet alloc] init] autorelease]];
-        
-	}
-	
-	return self;
-}
 
 
 
@@ -246,8 +76,8 @@
     
     NSString*headerImage      =  [[NSUserDefaults standardUserDefaults]  objectForKey:@"headerImage"];
     
-    TTImageView*imgV1= [[TTImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
-    imgV1.urlPath =  headerImage;
+    NINetworkImageView*imgV1= [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    [imgV1 setPathToNetworkImage:  headerImage];
     // imgV1.image = [UIImage imageNamed:@"img1.png"];
     [self.view addSubview:imgV1];
     
@@ -256,6 +86,28 @@
     NSString* kText = @" <span class=\"redText\">If app is open,the stream will start at alarm time. If app is in background mode or closed, an alert will appear at alarm time.</span><br>\
     <span class=\"yText\">Please keep phone unmuted.</span>";
  
+    
+    NIAttributedLabel* label = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
+ 
+    
+    label.numberOfLines = 0;
+    label.lineBreakMode = NSLineBreakByWordWrapping;
+    label.autoresizingMask = UIViewAutoresizingFlexibleDimensions;
+    label.frame = CGRectInset(self.view.bounds, 20, 20);
+    label.font =  [UIFont systemFontOfSize:17];
+    label.delegate = self;
+    label.autoDetectLinks = YES;
+    
+    // Turn on all available data detectors. This includes phone numbers, email addresses, and
+    // addresses.
+    label.dataDetectorTypes = NSTextCheckingAllSystemTypes;
+    
+    label.text = kText;
+    
+   // [self.view addSubview:label];
+    
+    
+    /*
     
     TTStyledTextLabel* label1 = [[[TTStyledTextLabel alloc] initWithFrame:self.view.bounds] autorelease];
     label1.top = imgV1.bottom;
@@ -266,6 +118,9 @@
     label1.textAlignment = UITextAlignmentCenter;
     [label1 sizeToFit];
     [self.view addSubview:label1];
+    
+    
+    */
     
 
     myDatePicker = [ [ UIDatePicker alloc] initWithFrame:CGRectMake(0.0,160,0.0,0.0)];

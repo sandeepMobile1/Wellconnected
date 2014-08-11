@@ -7,6 +7,7 @@
 //
 
 #import "EScrollerView.h"
+
 @implementation EScrollerView
 @synthesize delegate;
 
@@ -48,19 +49,19 @@
         scrollView.delegate = self;
         for (int i=0; i<pageCount; i++) {
             NSString *imgURL=[imageArray objectAtIndex:i];
-             [[TTURLRequestQueue mainQueue] setMaxContentLength:0];
-            TTImageView *imgView=[[[TTImageView alloc] init] autorelease];
+            
+            NINetworkImageView *imgView=[[[NINetworkImageView alloc] init] autorelease];
             if ([imgURL hasPrefix:@"http://"]) {
                 //网络图片 请使用ego异步图片库
                // [imgView setImageWithURL:[NSURL URLWithString:imgURL]];
                 
-                imgView.urlPath = imgURL;
+                [imgView setPathToNetworkImage:imgURL];
             }
             else
             {
                 UIImage *img=[UIImage imageNamed:[imageArray objectAtIndex:i]];
                 //[imgView setImage:img];
-                imgView.defaultImage  = img;
+                imgView.image  = img;
             }
             
             [imgView setFrame:CGRectMake(viewSize.size.width*i, 0,viewSize.size.width, viewSize.size.height)];
@@ -142,7 +143,15 @@
     }
    
     
-    TTOpenURL( [titleArray objectAtIndex:sender.view.tag-1]  ) ;
+ //   TTOpenURL( [titleArray objectAtIndex:sender.view.tag-1]  ) ;
+    
+    NSURL *url =  [NSURL URLWithString: [titleArray objectAtIndex:sender.view.tag-1]   ];
+
+    NIWebController* webController = [[NIWebController alloc] initWithURL:url];
+    [sharedDelegate.window.rootViewController.navigationController pushViewController:webController animated:YES];
+
+    
+    
 }
 
 @end

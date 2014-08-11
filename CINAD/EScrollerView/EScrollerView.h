@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AppDelegate.h"
 @protocol EScrollerViewDelegate <NSObject>
 @optional
 -(void)EScrollerViewDidClicked:(NSUInteger)index;

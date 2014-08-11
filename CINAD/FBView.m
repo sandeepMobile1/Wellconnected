@@ -14,15 +14,13 @@
 
 @implementation FBView
 
-@synthesize  webView;
+ 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self == [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.hidesBottomBarWhenPushed =  NO;
         
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Facebook"
-														 image:[UIImage imageNamed:@"facebook.png"]
-														   tag:0] autorelease];
+   
         self.title=@"Facebook";
     }
     
@@ -89,7 +87,7 @@
     
     
 }
- 
+
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
@@ -111,10 +109,14 @@
         // TTOpenURL(URL);
         [self.navigationController setNavigationBarHidden:NO animated:YES  ];
         
-        TTWebController *webController = [[[TTWebController alloc] init] autorelease];
-        [webController openURL:[NSURL URLWithString:URL]];
         
-        [self.navigationController pushViewController:webController animated:YES];
+        /**
+         TTWebController *webController = [[[TTWebController alloc] init] autorelease];
+         [webController openURL:[NSURL URLWithString:URL]];
+         
+         [self.navigationController pushViewController:webController animated:YES];
+         
+         */
         
         return NO;
     }
@@ -152,6 +154,11 @@
     [segmentedControl setSelectedSegmentIndex:-1];
     
 }
+
+
+
+
+
 
 
 @end

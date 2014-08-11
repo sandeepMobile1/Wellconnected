@@ -11,7 +11,8 @@
 #import <CFNetwork/CFNetwork.h>
 
 #import "AppDelegate.h"
-
+#import "AdiWebView.h"
+#import "BaseNavigationController.h"
 #pragma mark -
 @implementation MyMovieViewController
 
@@ -28,17 +29,6 @@
 @synthesize imageURL  ;
 
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	if (self == [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Listen"
-														 image:[UIImage imageNamed:@"tabicon-listen.png"]
-														   tag:0] autorelease];
-        
-	}
-	
-	return self;
-}
 
 
 - (void)viewDidLoad
@@ -70,9 +60,9 @@
    // NSString*bannerGroupUrl   = [[NSUserDefaults standardUserDefaults]  objectForKey:@"bannerGroupUrl"];
   
     
-    TTImageView*imgV1= [[TTImageView alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
-    imgV1.urlPath =  headerImage;
-    // imgV1.image = [UIImage imageNamed:@"img1.png"];
+    NINetworkImageView*imgV1= [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
+    [imgV1 setPathToNetworkImage:headerImage];
+    
     [self.view addSubview:imgV1];
     
     
@@ -240,7 +230,16 @@
 }
 
 - (void)openWin {
-    TTOpenURL(self.imageURL);
+      
+    AdiWebView * webController = [[AdiWebView alloc] initWithURL:[NSURL URLWithString:self.imageURL]];
+    
+    BaseNavigationController *baseNavigationController = [[BaseNavigationController alloc]
+                                                            initWithRootViewController:webController];
+    
+
+    [self.navigationController presentViewController:baseNavigationController animated:YES completion:nil    ];
+
+    
 }
 
 

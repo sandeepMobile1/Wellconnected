@@ -7,24 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Three20/Three20.h>
 
 #import "ClockViewController_iPhone.h"
 #import "Alarm.h"
 
-@interface AppDelegate : NSObject <UIApplicationDelegate ,TTURLRequestDelegate>
+
+#define  sharedDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
+
+
+@interface AppDelegate : NSObject <UIApplicationDelegate,NSXMLParserDelegate >
 {
-    TTNavigator* _navigator;
+    
+    
     ClockViewController_iPhone*clockViewController;
     
     BOOL uiIsVisible;
     
      Alarm*alarm;
 }
-
- 
-@property (nonatomic, retain) TTNavigator* navigator;
-
+@property (strong, nonatomic) UIWindow *window;
 @property (nonatomic) BOOL uiIsVisible;
 
 

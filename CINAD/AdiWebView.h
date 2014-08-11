@@ -1,4 +1,4 @@
-@interface AdiWebView : TTWebController 
+@interface AdiWebView : NIWebController
  
  
 @end

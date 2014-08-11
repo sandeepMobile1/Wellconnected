@@ -7,17 +7,20 @@
 //
 
 #import "AppDelegate.h"
+#import "BaseNavigationController.h"
+
+
 #import "MainTabBarController.h"
 #import "MyMovieViewController.h"
 #import "ClockViewController_iPhone.h"
 
 
-#import "NewsViewController.h"
-#import "NewsDetail.h"
-#import "PhotoViewController.h"
+//#import "NewsViewController.h"
+//#import "NewsDetail.h"
+//#import "PhotoViewController.h"
+
 #import "STeamViewController.h"
 
-#import "BNDefaultStylesheet.h"
 
 
 #import "FBView.h"
@@ -34,10 +37,10 @@
 #import "GetXML.h"
 
 
-#import "AdiWebView.h"
+ 
  
 @implementation AppDelegate
-@synthesize navigator;
+
 
 @synthesize uiIsVisible;
 
@@ -60,7 +63,7 @@
     
 }
 
-- (void)applicationDidFinishLaunching:(UIApplication*)application  
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     alarm = [[Alarm alloc] init];
    
@@ -68,13 +71,10 @@
     
     [UIApplication sharedApplication ].statusBarStyle  = UIStatusBarStyleBlackTranslucent;
    
-    [TTStyleSheet setGlobalStyleSheet:[[[BNDefaultStyleSheet alloc]   
-										init] autorelease]];
     
-    navigator = [TTNavigator navigator];
-    navigator.persistenceMode = TTNavigatorPersistenceModeNone;
-    navigator.supportsShakeToReload = YES;
-  //  navigator.window = [[[UIWindow alloc] initWithFrame:TTScreenBounds()] autorelease];
+    /**
+   
+   //  navigator.window = [[[UIWindow alloc] initWithFrame:TTScreenBounds()] autorelease];
     
     TTURLMap* map = navigator.URLMap;
     
@@ -117,16 +117,110 @@
     }
     
     
+    */
+    
+    
+   
+    
+    
+    
+    
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    
+    // listen
+    MyMovieViewController *movieViewController = [[MyMovieViewController alloc] init];
+    movieViewController.title = @"Listen";
+    movieViewController.tabBarItem.image = [UIImage imageNamed:@"tabicon-listen"];
+    
+    BaseNavigationController *movieNavigationController = [[BaseNavigationController alloc]
+                                                             initWithRootViewController:movieViewController];
+    
+    
+    
+   
+    
+    // remind
+    RemindEdit *remindViewController = [[RemindEdit alloc] init];
+    remindViewController.title = @"Alarm";
+    remindViewController.tabBarItem.image = [UIImage imageNamed:@"clock"];
+    
+    BaseNavigationController *remindNavigationController = [[BaseNavigationController alloc]
+                                                           initWithRootViewController:remindViewController];
+    
+    
+    
+    
+    FBView *fbViewController = [[FBView alloc] init];
+    fbViewController.title = @"Facebook";
+    fbViewController.tabBarItem.image = [UIImage imageNamed:@"facebook"];
+    
+    BaseNavigationController *fbNavigationController = [[BaseNavigationController alloc]
+                                                            initWithRootViewController:fbViewController];
+  
+    
+    
+    
+    
+    TView *tViewController = [[TView alloc] init];
+    tViewController.title = @"Twitter";
+    tViewController.tabBarItem.image = [UIImage imageNamed:@"twitter"];
+    
+    BaseNavigationController *tNavigationController = [[BaseNavigationController alloc]
+                                                        initWithRootViewController:tViewController];
+    
+  
+
+    
+    Website *websiteController = [[Website alloc] init];
+    websiteController.title = @"Website";
+    websiteController.tabBarItem.image = [UIImage imageNamed:@"tabicon-home"];
+    
+    BaseNavigationController *websiteNavigationController = [[BaseNavigationController alloc]
+                                                       initWithRootViewController:websiteController];
+    
+    
+    
+    InfoPage *infoPageController = [[InfoPage alloc] init];
+    infoPageController.title = @"Info page";
+    infoPageController.tabBarItem.image = [UIImage imageNamed:@""];
+    
+    BaseNavigationController *infoPageNavigationController = [[BaseNavigationController alloc]
+                                                             initWithRootViewController:infoPageController];
+    
+    
+    
+    
+    
+    
+    // tab bar
+    MainTabBarController *rootTabBarController = [[MainTabBarController alloc] init];
+    rootTabBarController.viewControllers = [NSArray arrayWithObjects:movieNavigationController,
+                                            remindNavigationController,  fbNavigationController,tNavigationController,
+                                            websiteNavigationController,
+                                            infoPageNavigationController,
+                                            nil];
+    
+    self.window.rootViewController = rootTabBarController;
+    
+    [self.window makeKeyAndVisible];
+    
+    
+    [self xmlTapped];
+    
+    return YES;
+    
+    
     
 
-    [self requestAction ] ;
+        
     
 }
 
-- (BOOL)application:(UIApplication*)application handleOpenURL:(NSURL*)URL {
-        [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:URL.absoluteString]];
-        return YES;
-}
 
 
 
@@ -187,6 +281,9 @@
     NSLog(@"didReceiveLocalNotification") ;
    //  [alarm play] ;
     
+    
+    
+    /*
 
     MainTabBarController*main = (MainTabBarController*) navigator.rootViewController;
     TTNavigationController*nav = (TTNavigationController*)[[main viewControllers] objectAtIndex:0 ]  ;
@@ -196,14 +293,15 @@
     MyMovieViewController*my    =(MyMovieViewController*) nav.topViewController ;
     [my buttonPressed:nil ];
     
-   
-    //[self requestAction ] ;
+    
+    */
+ 
 
 }
 
 
 
-
+/*
 
 - (void) requestAction   {
     
@@ -260,18 +358,6 @@
     NSString *bannerGroupId  = [[[response rootObject] objectForKey:@"bannerGroupId"] objectForXMLNode ];
   //  NSString *featureGroup    = [[[response rootObject] objectForKey:@"featureGroup"] objectForXMLNode ];
     
-    /**
-    NSString *uploadurl     = [[[response rootObject] objectForKey:@"uploadurl"] objectForXMLNode ];
-    NSString *stationid     = [[[response rootObject] objectForKey:@"stationid"] objectForXMLNode ];
-    NSString *photocontentid  = [[[response rootObject] objectForKey:@"photocontentid"] objectForXMLNode ];
-    NSString *videocontentid  = [[[response rootObject] objectForKey:@"videocontentid"] objectForXMLNode ];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:uploadurl      forKey:@"uploadurl"];
-    [[NSUserDefaults standardUserDefaults] setObject:stationid      forKey:@"stationid"];
-    [[NSUserDefaults standardUserDefaults] setObject:photocontentid forKey:@"photocontentid"];
-    [[NSUserDefaults standardUserDefaults] setObject:videocontentid forKey:@"videocontentid"];
-    
-    */
     
    NSLog(@"facebook%@" , facebook);
     NSLog(@"twitter%@" , twitter);
@@ -329,6 +415,59 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)request:(TTURLRequest*)request didFailLoadWithError:(NSError*)error {
     NSLog(@"APP Failed to load, try again.");
+}
+
+*/
+
+
+- (IBAction)xmlTapped{
+     
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/xml", @"text/xml",nil];
+  
+    AFHTTPRequestOperation *operation = [manager GET:@"http://s3.amazonaws.com/awsstatic/image/cinad/mobile_xml/cinad.xml"
+                                         
+                                          parameters:nil
+                                             success:^(AFHTTPRequestOperation *operation,  id responseObject) {
+                                              
+                                            //XMLParser.delegate = self;
+                                              //  XMLParser setShouldProcessNamespaces:YES];
+                                                // [XMLParser parse];
+                                                 
+                                             }
+                                             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                 NSLog(@"FAILED%@", error);
+                                             }];
+    
+    
+    
+    [operation start];
+    
+    /*
+    
+    
+    AFXMLRequestOperation *operation =
+    [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request
+                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser) {
+                                                            //self.xmlWeather = [NSMutableDictionary dictionary];
+                                                            XMLParser.delegate = self;
+                                                            [XMLParser setShouldProcessNamespaces:YES];
+                                                            [XMLParser parse];
+                                                        }
+                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, NSXMLParser *XMLParser) {
+                                                            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                                                                                                         message:[NSString stringWithFormat:@"%@",error]
+                                                                                                        delegate:nil
+                                                                                               cancelButtonTitle:@"OK"
+                                                                                               otherButtonTitles:nil];
+                                                            [av show];
+                                                        }];
+    
+    [operation start];
+    
+    */
+    
 }
 
 

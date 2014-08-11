@@ -1,5 +1,5 @@
 
 
-@interface MainTabBarController : UITabBarController<UITabBarDelegate, UITabBarControllerDelegate, UINavigationControllerDelegate>
+@interface MainTabBarController : UITabBarController
 
 @end

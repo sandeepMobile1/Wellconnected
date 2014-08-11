@@ -110,10 +110,14 @@
         // TTOpenURL(URL);
         [self.navigationController setNavigationBarHidden:NO animated:YES  ];
         
+        
+        /**
         TTWebController *webController = [[[TTWebController alloc] init] autorelease];
         [webController openURL:[NSURL URLWithString:URL]];
         
         [self.navigationController pushViewController:webController animated:YES];
+         
+         */
         
         return NO;
     }

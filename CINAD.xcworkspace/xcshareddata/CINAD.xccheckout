@@ -10,6 +10,8 @@
 	<string>CINAD</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>3727710D-43A6-4266-94DE-33986455DD94</key>
+		<string>https://github.com/jimneylee/JLNimbusTimeline.git</string>
 		<key>9359BD8E-B9A2-43FC-A06F-724D2D07F3CE</key>
 		<string>https://github.com/InterTechMedia/IOS.git</string>
 	</dict>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>1221F4ED-D3D3-43BA-9EEE-3A546D0662B1</key>
 		<string>../CINAD</string>
+		<key>3727710D-43A6-4266-94DE-33986455DD94</key>
+		<string>../Vendor/JLNimbusTimeline</string>
 		<key>9359BD8E-B9A2-43FC-A06F-724D2D07F3CE</key>
 		<string>..</string>
 	</dict>
@@ -34,17 +38,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1221F4ED-D3D3-43BA-9EEE-3A546D0662B1</string>
+			<string>9359BD8E-B9A2-43FC-A06F-724D2D07F3CE</string>
 			<key>IDESourceControlWCCName</key>
-			<string>CINAD</string>
+			<string>IOS</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9359BD8E-B9A2-43FC-A06F-724D2D07F3CE</string>
+			<string>3727710D-43A6-4266-94DE-33986455DD94</string>
 			<key>IDESourceControlWCCName</key>
-			<string>IOS</string>
+			<string>JLNimbusTimeline</string>
 		</dict>
 	</array>
 </dict>

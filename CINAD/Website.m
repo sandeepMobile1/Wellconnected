@@ -13,15 +13,7 @@
 @synthesize  webView;
 
  
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Website"
-														 image:[UIImage imageNamed:@"tabicon-home.png"] 
-														   tag:0] autorelease];
-    }
-    return self;
-}
+
 - (void)dismiss {
     
     [self.parentViewController  dismissModalViewControllerAnimated:YES];
@@ -118,10 +110,17 @@ if (navigationType == UIWebViewNavigationTypeLinkClicked) {
     // TTOpenURL(URL); 
     [self.navigationController setNavigationBarHidden:NO animated:YES  ];
     
-    TTWebController *webController = [[[TTWebController alloc] init] autorelease];
-    [webController openURL:[NSURL URLWithString:URL]];
     
-    [self.navigationController pushViewController:webController animated:YES];
+    
+    
+//    TTWebController *webController = [[[TTWebController alloc] init] autorelease];
+  //  [webController openURL:[NSURL URLWithString:URL]];
+    
+  //  [self.navigationController pushViewController:webController animated:YES];
+    
+    
+    
+    
     
     return NO;
 }
