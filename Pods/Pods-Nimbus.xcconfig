@@ -1,1 +1,1 @@
-PODS_NIMBUS_OTHER_LDFLAGS = -framework CoreGraphics -framework CoreText
+PODS_NIMBUS_OTHER_LDFLAGS = -framework CoreGraphics -framework CoreLocation -framework CoreText
