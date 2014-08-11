@@ -120,6 +120,21 @@
     */
     
     
+    [[NSUserDefaults standardUserDefaults] setObject:@"http://ice7.securenetsystems.net/CINA-FM" forKey:@"iosStreamUrl"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"https://www.facebook.com/cinaradio102.3fm" forKey:@"facebook"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"https://twitter.com"  forKey:@"twitter"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"http://cinafm.com" forKey:@"websiteUrl"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"http://derftghyu.itm-staging.com/pages/rss/fg-98685.rss"      forKey:@"fgUrl"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"http://cinafm.com"  forKey:@"signupUrl"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"http://cinafm.com/about-us/"    forKey:@"infoUrl"];
+    
+    
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"http://imgsrv.derftghyu.itm-staging.com/image/cinad/UserFiles/Image/Cinagarylogo.JPG"    forKey:@"headerImage"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"http://derftghyu.itm-staging.com/custom_code/mobile_app_banner_delivery.php?bannerxgroupid=33496" forKey:@"bannerGroupId"];
    
     
     
@@ -422,7 +437,7 @@
 
 - (IBAction)xmlTapped{
      
-    
+      /*
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/xml", @"text/xml",nil];
   
@@ -444,7 +459,7 @@
     
     [operation start];
     
-    /*
+  
     
     
     AFXMLRequestOperation *operation =

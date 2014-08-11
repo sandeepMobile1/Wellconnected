@@ -126,7 +126,7 @@
     
     [self.lbLoad setTextAlignment:NSTextAlignmentCenter] ;
     [self.lbLoad setBackgroundColor:[UIColor clearColor]];
-    [self.lbLoad setTextColor:[UIColor whiteColor]];
+ //   [self.lbLoad setTextColor:[UIColor whiteColor]];
     [self.lbLoad setText: [MyClass getConnectTitle  ] ];
     
     [self.view addSubview:lbLoad];
