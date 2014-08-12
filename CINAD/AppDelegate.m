@@ -72,54 +72,6 @@
     [UIApplication sharedApplication ].statusBarStyle  = UIStatusBarStyleBlackTranslucent;
    
     
-    /**
-   
-   //  navigator.window = [[[UIWindow alloc] initWithFrame:TTScreenBounds()] autorelease];
-    
-    TTURLMap* map = navigator.URLMap;
-    
-    // Any URL that doesn't match will fall back on this one, and open in the web browser
-   // [map from:@"*" toModalViewController:[TTWebController class]];
-    [map from:@"*" toModalViewController:[AdiWebView class]];
-    // The tab bar controller is shared, meaning there will only ever be one created.  Loading
-    // This URL will make the existing tab bar controller appear if it was not visible.
-    [map from:@"tt://tabBar" toSharedViewController:[MainTabBarController class]];
-    
-    [map from:@"tt://listen"       toViewController:[MyMovieViewController class]];
-    [map from:@"tt://clock"        toViewController:[ClockViewController_iPhone class]];
-    [map from:@"tt://remindEdit"   toViewController:[RemindEdit class]];
-    
-    // [map from:@"tt://news"          toViewController:[NewsViewController    class]];
-   // [map from:@"tt://newsDetail/(initWithNavigatorURL:)" toViewController:[NewsDetail class]];
-    
-   // [map from:@"tt://photo"  toViewController:[PhotoViewController   class]];
-    [map from:@"tt://steam"  toViewController:[STeamViewController   class]];
-   
-    [map from:@"tt://stationFB" toViewController:[FBView     class]];
-    [map from:@"tt://stationT"  toViewController:[TView      class]];
-    [map from:@"tt://website"   toViewController:[Website    class]];
-    [map from:@"tt://infopage"  toViewController:[InfoPage   class]];
-    [map from:@"tt://signup"    toViewController:[SignUpView class]];
-    
-    
-   //  [map from:@"tt://test"    toViewController:[TestViewController class]];
-    
-    
-    
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
-        [[UIApplication sharedApplication ]  setStatusBarStyle:UIStatusBarStyleLightContent];
-        //  self.window.clipsToBounds =YES;
-        
-   //     navigator.window.frame =  CGRectMake(0,20,navigator.window.frame.size.width,navigator.window.frame.size.height-20);
-        
-        //Added on 19th Sep 2013
-        // self.window.bounds = CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height);
-    }
-    
-    
-    */
-    
-    
     [[NSUserDefaults standardUserDefaults] setObject:@"http://ice7.securenetsystems.net/CINA-FM" forKey:@"iosStreamUrl"];
     [[NSUserDefaults standardUserDefaults] setObject:@"https://www.facebook.com/cinaradio102.3fm" forKey:@"facebook"];
     [[NSUserDefaults standardUserDefaults] setObject:@"https://twitter.com"  forKey:@"twitter"];
@@ -227,6 +179,8 @@
     
     [self xmlTapped];
     
+    
+    
     return YES;
     
     
@@ -296,21 +250,13 @@
     NSLog(@"didReceiveLocalNotification") ;
    //  [alarm play] ;
     
+    MainTabBarController*main = (MainTabBarController*) self.window.rootViewController;
     
+    BaseNavigationController*nav = (BaseNavigationController*)[[main viewControllers] objectAtIndex:0 ]  ;
     
-    /*
-
-    MainTabBarController*main = (MainTabBarController*) navigator.rootViewController;
-    TTNavigationController*nav = (TTNavigationController*)[[main viewControllers] objectAtIndex:0 ]  ;
-    
-    NSLog(@"df%@", nav.topViewController ) ;
     
     MyMovieViewController*my    =(MyMovieViewController*) nav.topViewController ;
     [my buttonPressed:nil ];
-    
-    
-    */
- 
 
 }
 
