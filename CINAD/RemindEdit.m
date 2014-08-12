@@ -106,21 +106,7 @@
     
    // [self.view addSubview:label];
     
-    
-    /*
-    
-    TTStyledTextLabel* label1 = [[[TTStyledTextLabel alloc] initWithFrame:self.view.bounds] autorelease];
-    label1.top = imgV1.bottom;
-    label1.font = [UIFont systemFontOfSize:17];
-    label1.text = [TTStyledText textFromXHTML:kText lineBreaks:YES URLs:YES];
-    label1.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    label1.backgroundColor = [UIColor clearColor];
-    label1.textAlignment = UITextAlignmentCenter;
-    [label1 sizeToFit];
-    [self.view addSubview:label1];
-    
-    
-    */
+  
     
 
     myDatePicker = [ [ UIDatePicker alloc] initWithFrame:CGRectMake(0.0,160,0.0,0.0)];
@@ -202,8 +188,7 @@
         notification.soundName = @"alarm-clock-1.mp3";
         
         
-        
-        
+    
         NSDictionary *dict = [NSDictionary dictionaryWithObject:@"value" forKey:@"key"];
         [notification setUserInfo:dict];
         

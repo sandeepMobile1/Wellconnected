@@ -512,10 +512,9 @@
 //
 - (IBAction)buttonPressed:(id)sender
 {
-	if ([button.currentImage isEqual:[UIImage imageNamed:@"playbutton.png"]] || [button.currentImage isEqual:[UIImage imageNamed:@"pausebutton.png"]])
+	if ([button.currentImage isEqual:[UIImage imageNamed:@"playbutton.png"]]  )
 	{
         
-		
 		[self createStreamer];
 		[self setButtonImage:[UIImage imageNamed:@"loadingbutton.png"]];
 		[streamer start];
@@ -526,7 +525,7 @@
 	}
 	else
 	{
-		[streamer stop];
+		[streamer pause];
          [self.lbLoad setText: [MyClass getConnectTitle  ] ];
 	}
 }

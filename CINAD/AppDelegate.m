@@ -250,10 +250,11 @@
     NSLog(@"didReceiveLocalNotification") ;
    //  [alarm play] ;
     
+    
+    
     MainTabBarController*main = (MainTabBarController*) self.window.rootViewController;
-    
+    [main setSelectedIndex:0];
     BaseNavigationController*nav = (BaseNavigationController*)[[main viewControllers] objectAtIndex:0 ]  ;
-    
     
     MyMovieViewController*my    =(MyMovieViewController*) nav.topViewController ;
     [my buttonPressed:nil ];
