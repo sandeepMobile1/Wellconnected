@@ -1,5 +1,0 @@
-
-
-@interface MainTabBarController : UITabBarController
-
-@end
