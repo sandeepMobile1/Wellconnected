@@ -1,4 +1,0 @@
-@interface AdiWebView : NIWebController
- 
- 
-@end
